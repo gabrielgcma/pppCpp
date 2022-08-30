@@ -24,13 +24,13 @@ int main()
     {
         double c;
         cin>>c;
-        cout<<c<<" is "<<c_to_f(c)<<" degrees Farenheit\n";
+        cout<<c<<"ºC is "<<c_to_f(c)<<" degrees Farenheit\n";
     }
 
     if(op == 2)
     {
         double f;
         cin>>f;
-        cout<<f<<" is "<<f_to_c(f)<<" degrees Celsius\n";
+        cout<<f<<"ºF is "<<f_to_c(f)<<" degrees Celsius\n";
     }
 }
