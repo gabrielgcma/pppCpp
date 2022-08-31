@@ -11,7 +11,7 @@ int main()
     vector<int> v = {2, 4, 6, 9};
     vector<int> guess(4);
 
-    int cows=0, bulls=0;
+    int cows = 0, bulls = 0;
     cout << "Try to guess the correct sequence of numbers:\n";
 
     while(true)
