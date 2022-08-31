@@ -21,6 +21,27 @@ void nFib (int n)
     cout << '\n';   
 }   
 
+void largestFib (int limit)
+{
+    vector<int> fib;
+    fib.push_back(1);
+    fib.push_back(1);
+
+    int i = 2;
+    while(true)
+    {
+        fib.push_back(fib[i-1] + fib[i-2]);
+
+        if(fib[i] > limit)
+        {
+            cout << "The largest Fib numer that can fit inside " << limit << " is " << fib[i-1] << '\n';
+            break;
+        }  
+
+        ++i;
+    }
+}
+
 int main()
 {
     int size;
@@ -28,4 +49,10 @@ int main()
     cin >> size;
 
     nFib(size);
+
+    int limit;
+    cout << "Enter an integer to see the biggest Fibonacci integer that can fit in this int:\n";
+    cin >> limit;
+
+    largestFib(limit);
 }
