@@ -84,8 +84,8 @@ Token Token_stream::get()
 
     switch (ch)
     {
-    case ';': // for "print"
-    case 'q': // for "quit"
+    case '=': // for "print"
+    case 'x': // for "quit"
     case '(': case ')': case '+': case '-': case '*': case '/':
         return Token(ch); // let each character represent itself
     case '.':
@@ -119,7 +119,7 @@ double primary()
     Token t = ts.get();
     switch (t.kind)
     {
-    case 'q':
+    case 'x':
         exit(0);
     case '(': // handle '(' expression ')'
     {
@@ -154,7 +154,7 @@ double term()
             t = ts.get();
         case '/':
         {
-            double d = primary();
+            double d = primary(); 
             if (d == 0)
                 error("divide by zero");
             left /= d;
@@ -198,6 +198,12 @@ double expression()
 //------------------------------------------------------------------------------
 
 int main()
+{
+
+    cout << "Welcome to our simple calculator!\n"
+         << "Please enter expressions using floating-point numbers.\n"
+         << "Type a valid operation and press Enter. Press x and Enter to quit.\n";
+
 try
 {   
     double val = 0;
@@ -205,8 +211,8 @@ try
     {
         Token t = ts.get();
          
-        if (t.kind == 'q') break;
-        if (t.kind == ';')
+        if (t.kind == 'x') break;
+        if (t.kind == '=')
             cout << "=" << val << '\n';
         else 
             ts.putback(t);
@@ -222,6 +228,7 @@ catch (...)
 {
     cerr << "Oops: unknown exception!\n";
     return 2;
+}
 }
 
 //------------------------------------------------------------------------------
