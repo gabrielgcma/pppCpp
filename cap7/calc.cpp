@@ -198,6 +198,8 @@ try
     double val = 0;
     while (cin)
     {
+        cout << '> ';
+
         Token t = ts.get();
          
         if (t.kind == 'x') break;
