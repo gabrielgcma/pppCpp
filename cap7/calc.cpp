@@ -198,7 +198,7 @@ try
     double val = 0;
     while (cin)
     {
-        cout << '> ';
+        cout << "> ";
 
         Token t = ts.get();
          
