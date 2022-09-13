@@ -210,9 +210,15 @@ try
         val = expression();
     }
 }
-catch (exception &e)
+catch (runtime_error&  e)
 {
     cerr << "error: " << e.what() << '\n';
+    // Manter a janela aberta:
+    cout << "Please enter the character ~ to close the window\n";
+
+    for (char ch; cin >> ch;)
+        if (ch == '~') return 1;
+
     return 1;
 }
 catch (...)
