@@ -213,11 +213,8 @@ try
 catch (runtime_error&  e)
 {
     cerr << "error: " << e.what() << '\n';
-    // Manter a janela aberta:
-    cout << "Please enter the character ~ to close the window\n";
 
-    for (char ch; cin >> ch;)
-        if (ch == '~') return 1;
+    keep_window_open("~~");
 
     return 1;
 }
