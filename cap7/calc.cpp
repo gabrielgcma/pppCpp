@@ -202,25 +202,32 @@ try
 
         Token t = ts.get();
          
-        if (t.kind == 'x') break;
-        if (t.kind == '=')
-            cout << "=" << val << '\n';
-        else 
-            ts.putback(t);
-        val = expression();
+        while(t.kind == ';')
+            t = ts.get();  
+
+        if (t.kind == 'x') 
+        {
+            keep_window_open();
+            return 0;
+        }
+
+        ts.putback(t);
+        cout << "=" << expression() << '\n'; 
     }
+
+    keep_window_open();
+    return 0;
 }
 catch (runtime_error&  e)
 {
     cerr << "error: " << e.what() << '\n';
-
     keep_window_open("~~");
-
     return 1;
 }
 catch (...)
 {
     cerr << "Oops: unknown exception!\n";
+    keep_window_open("~~");
     return 2;
 }
 }
