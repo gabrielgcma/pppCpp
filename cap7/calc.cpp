@@ -152,6 +152,15 @@ double term()
             t = ts.get();
             break;
         }
+        case '%':
+        {
+            int i1 = narrow_cast<int>(left);
+            int i2 = narrow_cast<int>(primary());
+            if (i2 == 0) error( "%: divide by zero");
+            left = i1 % i2;
+            t = ts.get();
+            break;
+        }
         default:
             ts.putback(t); // put t back into the token stream
             return left;
